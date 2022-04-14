@@ -1,0 +1,35 @@
+.header {
+    text-align: center;
+    font-family: copperplate !important;
+    font-size: 4em;
+    color: rgb(33, 37, 41);
+    padding: 1em 0 1em 0;
+    font-weight: 0;
+}
+
+thead {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(230px, 1fr));
+    gap: 5em;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-body {
+    margin-right: 20%;
+    margin-left: 20%;
+    line-height: 2;
+    text-align: justify;
+}
+
+li.bulletPts {
+    margin-left: 1em;
+}
+
+.aymarHome {
+    float: left;
+    width: 25%;
+    height: 25%;
+    padding: 0 1em 0 0;
+}

@@ -1,0 +1,33 @@
+ .nav {
+     width: 100%;
+     display: flex;
+     background: radial-gradient(circle, rgba(240, 240, 240, 1) 0%, rgba(240, 240, 240, 1) 100%);
+ }
+
+ .navTitle {
+     width: 100%;
+     color: rgb(98, 195, 207) !important;
+     font-size: 50px;
+     text-align: center;
+     margin-right: auto;
+     margin-left: auto;
+
+ }
+
+ .navLinks {
+     margin: 2% auto 0 auto;
+     padding-right: 10px;
+
+ }
+
+ img {
+     width: 5%;
+     height: auto;
+ }
+
+ .link {
+     padding-right: 10px;
+     font-size: 1em;
+     text-decoration: none;
+     color: rgb(98, 195, 207);
+ }

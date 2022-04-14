@@ -1,0 +1,19 @@
+#objective {
+    text-align: center;
+}
+
+#grantLinks {
+    text-align: center;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#ricoLink {
+    width: 50%;
+    float: left;
+}
+
+#AEJLink {
+    margin-left: 50%;
+}
