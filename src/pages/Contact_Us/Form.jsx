@@ -53,7 +53,7 @@ function Form() {
       message: input.message,
     }
 
-    axios.post('http://localhost:3001/create', newForm)
+    axios.post('https://thaomo-project1.herokuapp.com/create', newForm)
     console.log(input);
   }
 
