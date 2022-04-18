@@ -54,14 +54,14 @@ function Form() {
     }
 
     axios.post('https://thaomo-project1.herokuapp.com/create', newForm)
-    console.log(input);
+    document.getElementById('grantForm').reset();
   }
 
   return (
     <div>
       <div className="flex flex-col items-center justify-center bg-gray-200"></div>
       <div className="w-full max-w-sm m-auto flex flex-col my-32">
-        <form style={{ width: "50%", margin: "auto" }}>
+        <form id='grantForm' style={{ width: "50%", margin: "auto" }}>
           <span>
             <input
               style={{ width: "20%" }}
