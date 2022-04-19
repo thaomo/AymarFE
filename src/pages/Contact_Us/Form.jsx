@@ -52,9 +52,9 @@ function Form() {
       coachName: input.coachName,
       message: input.message,
     }
-
+    console.log(input);
     axios.post('https://thaomo-project1.herokuapp.com/create', newForm)
-    document.getElementById('grantForm').reset();
+    input.setInput();
   }
 
   return (
@@ -71,6 +71,7 @@ function Form() {
               name="lName"
               placeholder="Last Name"
               onChange={handleChange}
+              initialValue=""
               value={input.lName}
               required
             />
@@ -141,13 +142,16 @@ function Form() {
               className="form-group"
               autoComplete="off"
               type="text"
-              name="Grade Point Average"
+              name="gpa"
               placeholder="Grade Point Average"
               onChange={handleChange}
               value={input.gpa}
+              pattern='/^[0-9]+$/'
               required
             />
           </span>
+          <br></br>
+          <br></br>
           <span>
             <input
               style={{ width: "50%" }}
