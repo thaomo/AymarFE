@@ -19,6 +19,7 @@ function Form() {
     isExceptional: false,
     isDuncan: false,
     sportsInvolved: '',
+    listOfSports: '',
     coachName: '',
     message: '',
   })
@@ -51,6 +52,7 @@ function Form() {
       isExceptional: input.isExceptional,
       isDuncan: input.isDuncan,
       sportsInvolved: input.sportsInvolved,
+      listOfSports: input.listOfSports,
       coachName: input.coachName,
       message: input.message,
     }
@@ -191,25 +193,28 @@ function Form() {
             required
           />
           <br></br>
-          <div style={{ width: "100%" }}>
-            <div style={{ width: "50%", float: "left" }}>
-              <label>Grants Applying For:</label>
-              <div>
-                <br></br>
-                <input type="checkbox" onChange={handleChange} name='isUnusual' value={input.isUnusual} />
-                <label>Unusual Circumstances</label>
-              </div>
-              <div>
-                <input type="checkbox" onChange={handleChange} name='isExceptional' value={input.isExceptional} />
-                <label>Exceptional Student</label>
-              </div>
-              <div>
-                <input type="checkbox" onChange={handleChange} name='isDuncan' value={input.isDuncan} />
-                <label>Duncan Student Athlete</label>
-              </div>
+          <br></br>
+          <div style={{ width: "50%" }}>
+            <label>Grants Applying For:</label>
+            <div>
+              <input type="checkbox" onChange={handleChange} name='isUnusual' value={input.isUnusual} />
+              <label>Unusual Circumstances</label>
             </div>
-            <div style={{ width: "50%", float: "right" }}>
+            <div>
+              <input type="checkbox" onChange={handleChange} name='isExceptional' value={input.isExceptional} />
+              <label>Exceptional Student</label>
+            </div>
+            <div>
+              <input type="checkbox" onChange={handleChange} name='isDuncan' value={input.isDuncan} />
+              <label>Duncan Student Athlete</label>
+            </div>
+          </div>
+          <br></br>
+          <hr style={{ width: "92%" }}></hr>
+          <div>
+            <div style={{ width: "45%", float: "left" }}>
               <label>Involved in any sports?</label>
+              <br></br>
               <div>
                 <input
                   onChange={handleChange}
@@ -227,6 +232,14 @@ function Form() {
                 <label>No</label>
               </div>
             </div>
+            <input
+              style={{ width: "45%", marginLeft: "15px" }}
+              type="text"
+              placeholder="List all sports"
+              name="listOfSports"
+              value={input.listOfSports}
+              onChange={handleChange}
+            />
           </div>
           <br></br>
           <br></br>
