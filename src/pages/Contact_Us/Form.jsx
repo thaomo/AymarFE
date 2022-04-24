@@ -57,8 +57,7 @@ function Form() {
       message: input.message,
     }
     console.log(input);
-    axios.post('https://thaomo-project1.herokuapp.com/create', newForm)
-    input.setInput();
+    axios.post('https://thaomo-project1.herokuapp.com/create', newForm);
   }
 
   return (
