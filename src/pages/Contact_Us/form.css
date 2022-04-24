@@ -3,7 +3,3 @@
     margin-right: auto !important;
     margin-left: auto !important;
 }
-
-span + span {
-    margin-left: 10px;
-}

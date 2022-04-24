@@ -15,20 +15,22 @@ function Form() {
     phone: '',
     email: '',
     teacherName: '',
-    grantsApplyingFor: '',
+    isUnusual: false,
+    isExceptional: false,
+    isDuncan: false,
     sportsInvolved: '',
     listOfSports: '',
     coachName: '',
     message: '',
   })
 
-  function handleChange(event) {
-    const { name, value } = event.target;
+  function handleChange(e) {
+    const { name, value, type, checked } = e.target;
 
     setInput(prevInput => {
       return {
         ...prevInput,
-        [name]: value
+        [name]: type === 'checkbox' ? checked : value
       }
     })
   }
@@ -46,7 +48,9 @@ function Form() {
       phone: input.phone,
       email: input.email,
       teacherName: input.teacherName,
-      grantsApplyingFor: input.grantsApplied,
+      isUnusual: input.isUnusual,
+      isExceptional: input.isExceptional,
+      isDuncan: input.isDuncan,
       sportsInvolved: input.sportsInvolved,
       listOfSports: input.listOfSports,
       coachName: input.coachName,
@@ -61,22 +65,19 @@ function Form() {
     <div>
       <div className="flex flex-col items-center justify-center bg-gray-200"></div>
       <div className="w-full max-w-sm m-auto flex flex-col my-32">
-        <form id='grantForm' style={{ width: "50%", margin: "auto" }}>
+        <form onSubmit={handleClick} id='grantForm' style={{ width: "50%", margin: "auto" }}>
           <span>
             <input
-              style={{ width: "20%" }}
-              className="form-group"
-              autoComplete="off"
+              style={{ width: "45%" }}
               type="text"
               name="lName"
               placeholder="Last Name"
               onChange={handleChange}
-              initialValue=""
               value={input.lName}
               required
             />
             <input
-              style={{ width: "20%", marginLeft: "10px" }}
+              style={{ width: "45%", marginLeft: "15px" }}
               className="form-group"
               autoComplete="off"
               type="text"
@@ -86,8 +87,12 @@ function Form() {
               value={input.fName}
               required
             />
+          </span>
+          <br></br>
+          <br></br>
+          <span>
             <input
-              style={{ width: "20%", marginLeft: "10px" }}
+              style={{ width: "45%" }}
               className="form-group"
               autoComplete="off"
               type="text"
@@ -95,16 +100,15 @@ function Form() {
               placeholder="Age"
               onChange={handleChange}
               value={input.age}
-              required
             />
-            <select style={{ width: "20%", height: "28px", marginLeft: "10px" }}>
+            <select onChange={handleChange} name="gender" style={{ width: "45%", height: "28px", marginLeft: "15px" }}>
               <option default value="gender">
                 Gender
               </option>
-              <option value="male">
+              <option value="Male">
                 Male
               </option>
-              <option value="female">
+              <option value="Female">
                 Female
               </option>
             </select>
@@ -113,7 +117,7 @@ function Form() {
           <br></br>
           <div>
             <input
-              style={{ width: "50%", margin: "auto" }}
+              style={{ width: "92%", margin: "auto" }}
               className="form-group"
               autoComplete="off"
               type="text"
@@ -121,32 +125,25 @@ function Form() {
               placeholder="Address"
               onChange={handleChange}
               value={input.address}
-              required
             />
           </div>
           <br></br>
           <span>
             <input
-              style={{ width: "50%" }}
-              className="form-group"
-              autoComplete="off"
+              style={{ width: "45%" }}
               type="text"
               name="currentSchool"
               placeholder="Current School"
               onChange={handleChange}
               value={input.currentSchool}
-              required
             />
             <input
-              style={{ width: "50%" }}
-              className="form-group"
-              autoComplete="off"
+              style={{ width: "45%", marginLeft: "15px" }}
               type="text"
               name="gpa"
               placeholder="Grade Point Average"
               onChange={handleChange}
               value={input.gpa}
-              pattern='/^[0-9]+$/'
               required
             />
           </span>
@@ -154,9 +151,7 @@ function Form() {
           <br></br>
           <span>
             <input
-              style={{ width: "50%" }}
-              className="form-group"
-              autoComplete="off"
+              style={{ width: "45%" }}
               type="text"
               name="phone"
               placeholder="Phone"
@@ -164,14 +159,8 @@ function Form() {
               value={input.phone}
               required
             />
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2 text-center"
-              htmlFor="Email"
-            >
-            </label>
             <input
-              className="form-group"
-              autoComplete="off"
+              style={{ width: "45%", marginLeft: "15px" }}
               type="text"
               name="email"
               placeholder="Email Address"
@@ -180,10 +169,10 @@ function Form() {
               required
             />
           </span>
+          <br></br>
+          <br></br>
           <input
-            style={{ width: "50%" }}
-            className="form-group"
-            autoComplete="off"
+            style={{ width: "92%" }}
             type="text"
             name="teacherName"
             placeholder="Teacher's Name"
@@ -192,78 +181,48 @@ function Form() {
             required
           />
           <br></br>
-          <span>
-
-            <label>Grants Applying For:</label>
-            <br></br>
-            <input
-              className="form-group"
-              autoComplete="off"
-              type="checkbox"
-              name="unusual"
-              placeholder="Grants Applying For"
-              onChange={handleChange}
-              value={input.grantsApplied}
-              required
-            />
-            <label>Unusual</label>
-            <input
-              className="form-group"
-              autoComplete="off"
-              type="checkbox"
-              name="exceptional"
-              placeholder="Grants Applying For"
-              onChange={handleChange}
-              value={input.grantsApplied}
-              required
-            />
-            <label>Exceptional Student</label>
-            <input
-              className="form-group"
-              autoComplete="off"
-              type="checkbox"
-              name="studentAthlete"
-              placeholder="Grants Applying For"
-              onChange={handleChange}
-              value={input.grantsApplied}
-              required
-            />
-            <label>Duncan Student Athlete</label>
-          </span>
-          <br></br>
-          <span>
-            <label>Involved in any sports?</label>
-            <input
-              className="form-group"
-              id="yes"
-              type={"radio"}
-              name="yes"
-              onChange={handleChange}
-              value="yes"
-            />
-            <label htmlFor="yes">Yes</label>
-            <input
-              className="form-group"
-              id="no"
-              type={"radio"}
-              name="no"
-              onChange={handleChange}
-              value="no"
-            />
-            <label htmlFor="no">No</label>
-
-          </span>
-
+          <div style={{ width: "100%" }}>
+            <div style={{ width: "50%", float: "left" }}>
+              <label>Grants Applying For:</label>
+              <div>
+                <br></br>
+                <input type="checkbox" onChange={handleChange} name='isUnusual' value={input.isUnusual} />
+                <label>Unusual Circumstances</label>
+              </div>
+              <div>
+                <input type="checkbox" onChange={handleChange} name='isExceptional' value={input.isExceptional} />
+                <label>Exceptional Student</label>
+              </div>
+              <div>
+                <input type="checkbox" onChange={handleChange} name='isDuncan' value={input.isDuncan} />
+                <label>Duncan Student Athlete</label>
+              </div>
+            </div>
+            <div style={{ width: "50%", float: "right" }}>
+              <label>Involved in any sports?</label>
+              <div>
+                <input
+                  onChange={handleChange}
+                  type="radio"
+                  name="sportsInvolved"
+                  value="Yes"
+                />
+                <label>Yes</label>
+                <input
+                  onChange={handleChange}
+                  type="radio"
+                  name="sportsInvolved"
+                  value="No"
+                />
+                <label>No</label>
+              </div>
+            </div>
+          </div>
           <br></br>
           <br></br>
           <div >
-            <label
-              htmlFor="coachName"
-            >
-            </label>
             <textarea
-              className="form-group"
-              autoComplete="off"
+              style={{ width: "92%", height: "100px" }}
               type="text"
               onChange={handleChange}
               name="coachName"
@@ -271,16 +230,9 @@ function Form() {
               value={input.coachName}
             />
           </div>
-
           <div >
-            <label
-              className="block text-gray-700 text-sm text-center font-bold mb-2"
-              htmlFor="message"
-            >
-            </label>
             <textarea
-              className="form-group"
-              autoComplete="off"
+              style={{ width: "92%", height: "100px" }}
               type="text"
               onChange={handleChange}
               name="message"
@@ -288,18 +240,19 @@ function Form() {
               value={input.message}
             />
           </div>
-
+          <br></br>
           <div className="flex items-center justify-between">
             <button
+              style={{ width: "92%" }}
               type="submit"
-              onClick={handleClick}
+              className="btn btn-primary"
             >
               Submit Form
             </button>
           </div>
         </form>
       </div>
-    </div>
+    </div >
   );
 }
 
