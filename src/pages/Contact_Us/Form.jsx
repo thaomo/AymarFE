@@ -19,7 +19,6 @@ function Form() {
     isExceptional: false,
     isDuncan: false,
     sportsInvolved: '',
-    listOfSports: '',
     coachName: '',
     message: '',
   })
@@ -52,7 +51,6 @@ function Form() {
       isExceptional: input.isExceptional,
       isDuncan: input.isDuncan,
       sportsInvolved: input.sportsInvolved,
-      listOfSports: input.listOfSports,
       coachName: input.coachName,
       message: input.message,
     }
@@ -92,8 +90,11 @@ function Form() {
           <span>
             <input
               style={{ width: "45%" }}
-              className="form-group"
-              autoComplete="off"
+              onKeyPress={(e) => {
+                if (!/[0-9]/.test(e.key)) {
+                  e.preventDefault();
+                }
+              }}
               type="text"
               name="age"
               placeholder="Age"
@@ -138,6 +139,11 @@ function Form() {
             />
             <input
               style={{ width: "45%", marginLeft: "15px" }}
+              onKeyPress={(e) => {
+                if (!/[0-9]/.test(e.key)) {
+                  e.preventDefault();
+                }
+              }}
               type="text"
               name="gpa"
               placeholder="Grade Point Average"
@@ -151,6 +157,11 @@ function Form() {
           <span>
             <input
               style={{ width: "45%" }}
+              onKeyPress={(e) => {
+                if (!/[0-9]/.test(e.key)) {
+                  e.preventDefault();
+                }
+              }}
               type="text"
               name="phone"
               placeholder="Phone"
