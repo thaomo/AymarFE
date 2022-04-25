@@ -1,11 +1,10 @@
 import React from 'react'
-import Form from './Form'
 
 function ContactUs() {
     return (
         <div>
             <div style={{ margin: "auto", width: "50%" }} className="header">Contact Rico&apos;s Foundation</div>
-            <Form />
+            <h1 style={{ textAlign: "center" }}>Under Construction</h1>
         </div>
     )
 }

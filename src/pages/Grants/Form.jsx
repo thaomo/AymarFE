@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import './form.css'
-import axios from "axios"
+//import axios from "axios"
+import { useHistory } from "react-router-dom";
+import './Grants.css'
+
 
 function Form() {
 
+  const history = useHistory();
+  const [isPending, setIsPending] = useState(false);
   const [input, setInput] = useState({
     lName: '',
     fName: '',
@@ -57,13 +61,30 @@ function Form() {
       message: input.message,
     }
     console.log(input);
-    axios.post('https://thaomo-project1.herokuapp.com/create', newForm);
+    //axios.post('https://thaomo-project1.herokuapp.com/create', newForm);
+    setIsPending(true);
+    fetch('https://thaomo-project1.herokuapp.com/create', {
+
+      // Adding method type
+      method: "POST",
+
+      // Adding body or contents to send
+      body: JSON.stringify(newForm),
+
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    }).then(() => {
+      setIsPending(false);
+    })
+    history.push('/');
   }
 
   return (
     <div>
       <div className="flex flex-col items-center justify-center bg-gray-200"></div>
-      <div className="w-full max-w-sm m-auto flex flex-col my-32">
+      <div className="w-full max-w-sm m-auto flex flex-col my-32" style={{}}>
         <form onSubmit={handleClick} id='grantForm' style={{ width: "50%", margin: "auto" }}>
           <span>
             <input
@@ -169,7 +190,6 @@ function Form() {
               placeholder="Phone"
               onChange={handleChange}
               value={input.phone}
-              required
             />
             <input
               style={{ width: "45%", marginLeft: "15px" }}
@@ -190,7 +210,6 @@ function Form() {
             placeholder="Teacher's Name"
             onChange={handleChange}
             value={input.teacherName}
-            required
           />
           <br></br>
           <br></br>
@@ -265,13 +284,19 @@ function Form() {
           </div>
           <br></br>
           <div className="flex items-center justify-between">
-            <button
+            {!isPending && <button
               style={{ width: "92%" }}
               type="submit"
               className="btn btn-primary"
             >
               Submit Form
-            </button>
+            </button>}
+            {isPending && <button
+              style={{ width: "92%" }}
+              type="submit"
+              className="btn btn-primary"
+              disabled>Submitting Application...</button>}
+
           </div>
         </form>
       </div>
