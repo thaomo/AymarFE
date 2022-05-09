@@ -89,6 +89,7 @@ function Form() {
           <span>
             <input
               style={{ width: "45%" }}
+              className="form-group"
               type="text"
               name="lName"
               placeholder="Last Name"
@@ -119,12 +120,13 @@ function Form() {
                 }
               }}
               type="text"
+              className="form-group"
               name="age"
               placeholder="Age"
               onChange={handleChange}
               value={input.age}
             />
-            <select onChange={handleChange} name="gender" style={{ width: "45%", height: "28px", marginLeft: "15px" }}>
+            <select onChange={handleChange} name="gender" style={{ width: "45%", height: "35px", marginLeft: "15px" }}>
               <option default value="gender">
                 Gender
               </option>
@@ -153,14 +155,16 @@ function Form() {
           <br></br>
           <span>
             <input
-              style={{ width: "45%" }}
-              type="text"
-              name="currentSchool"
-              placeholder="Current School"
-              onChange={handleChange}
-              value={input.currentSchool}
+            className="form-group"
+            style={{ width: "45%" }}
+            type="text"
+            name="currentSchool"
+            placeholder="Current School"
+            onChange={handleChange}
+            value={input.currentSchool}
             />
             <input
+            className="form-group"
               style={{ width: "45%", marginLeft: "15px" }}
               onKeyPress={(e) => {
                 if (!/[0-9]/.test(e.key)) {
@@ -188,6 +192,7 @@ function Form() {
                 }
               }}
               type="text"
+              className="form-group"
               name="phone"
               placeholder="Phone"
               onChange={handleChange}
@@ -199,6 +204,7 @@ function Form() {
               name="email"
               placeholder="Email Address"
               onChange={handleChange}
+              className="form-group"
               value={input.email}
               required
             />
@@ -211,6 +217,7 @@ function Form() {
             name="teacherName"
             placeholder="Teacher's Name"
             onChange={handleChange}
+            className="form-group"
             value={input.teacherName}
           />
           <br></br>
@@ -218,8 +225,8 @@ function Form() {
           <div style={{ width: "50%" }}>
             <label>Grants Applying For:</label>
             <div>
-              <input type="checkbox" onChange={handleChange} name='isUnusual' value={input.isUnusual} />
-              <label>Unusual Circumstances</label>
+              <input type="checkbox" id="Unusual" onChange={handleChange} name='isUnusual' value={input.isUnusual} />
+              <label htmlFor="Unusual">Unusual Circumstances</label>
             </div>
             <div>
               <input type="checkbox" onChange={handleChange} name='isExceptional' value={input.isExceptional} />
@@ -236,7 +243,7 @@ function Form() {
             <div style={{ width: "45%", float: "left" }}>
               <label>Involved in any sports?</label>
               <br></br>
-              <div>
+              <div style={{}}>
                 <input
                   onChange={handleChange}
                   type="radio"
@@ -260,6 +267,7 @@ function Form() {
               name="listOfSports"
               value={input.listOfSports}
               onChange={handleChange}
+              className="form-group"
             />
           </div>
           <br></br>
