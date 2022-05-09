@@ -7,7 +7,7 @@ function Grants() {
 
     return (
         <div>
-            <div style={{ margin: "auto", width: "50%" }} className="header">Rico&apos;s Foundation Grant</div>
+            <div style={{ margin: "auto", width: "50%" }} className="header">Grant Application</div>
             <Form />
         </div>
     )

@@ -87,6 +87,7 @@ function Form() {
       <div className="w-full max-w-sm m-auto flex flex-col my-32" style={{}}>
         <form onSubmit={handleClick} id='grantForm' style={{ width: "50%", margin: "auto" }}>
           <span>
+            <label>Last Name*</label>
             <input
               style={{ width: "45%" }}
               type="text"
@@ -96,6 +97,7 @@ function Form() {
               value={input.lName}
               required
             />
+            <label>First Name*</label>
             <input
               style={{ width: "45%", marginLeft: "15px" }}
               className="form-group"
