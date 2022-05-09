@@ -167,7 +167,10 @@ function Form() {
                   e.preventDefault();
                 }
               }}
-              type="text"
+              type="number"
+              step="0.1"
+              min='0.0'
+              max='4.0'
               name="gpa"
               placeholder="Grade Point Average"
               onChange={handleChange}
