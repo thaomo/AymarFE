@@ -14,10 +14,10 @@ function App() {
     <Router>
       <Navbar />
       <Route exact path='/' component={Home} />
-      <Route exact path='/ContactUs' component={ContactUs} />
-      <Route exact path='/Donation' component={Donation} />
-      <Route exact path='/Grants' component={Grants} />
-      <Route exact path='/Gallery' component={Gallery} />
+      <Route exact path='/contactUs' component={ContactUs} />
+      <Route exact path='/donation' component={Donation} />
+      <Route exact path='/grants' component={Grants} />
+      <Route exact path='/gallery' component={Gallery} />
       <FooterContainer />
     </Router>
 
