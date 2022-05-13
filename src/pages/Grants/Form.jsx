@@ -257,6 +257,7 @@ function Form() {
                   value="Yes"
                 />
                 <label>Yes</label>
+                &nbsp;&nbsp;&nbsp;
                 <input
                   onChange={handleChange}
                   type="radio"
@@ -312,7 +313,6 @@ function Form() {
               type="submit"
               className="btn btn-primary"
               disabled>Submitting Application...</button>}
-
           </div>
         </form>
       </div>
