@@ -22,6 +22,7 @@ function Form() {
     isUnusual: false,
     isExceptional: false,
     isDuncan: false,
+    isOctavia: false,
     sportsInvolved: '',
     listOfSports: '',
     coachName: '',
@@ -55,6 +56,7 @@ function Form() {
       isUnusual: input.isUnusual,
       isExceptional: input.isExceptional,
       isDuncan: input.isDuncan,
+      isOctavia: input.isOctavia,
       sportsInvolved: input.sportsInvolved,
       listOfSports: input.listOfSports,
       coachName: input.coachName,
@@ -235,6 +237,10 @@ function Form() {
             <div>
               <input type="checkbox" onChange={handleChange} name='isDuncan' value={input.isDuncan} />
               <label>Duncan Student Athlete</label>
+            </div>
+            <div>
+              <input type="checkbox" onChange={handleChange} name='isOctavia' value={input.isOctavia} />
+              <label>Octavia Marius grant (Teacher Felica)</label>
             </div>
           </div>
           <br></br>
