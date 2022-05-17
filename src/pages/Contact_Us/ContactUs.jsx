@@ -1,10 +1,10 @@
 import React from 'react'
+import ContactForm from './ContactForm'
 
 function ContactUs() {
     return (
         <div>
-            <div style={{ margin: "auto", width: "50%" }} className="header">Contact Us</div>
-            <h1 style={{ textAlign: "center" }}>Under Construction</h1>
+            <ContactForm/>
         </div>
     )
 }
