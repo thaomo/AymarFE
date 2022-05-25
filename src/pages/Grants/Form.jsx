@@ -65,7 +65,7 @@ function Form() {
     console.log(input);
     //axios.post('https://thaomo-project1.herokuapp.com/create', newForm);
     setIsPending(true);
-    fetch('https://thaomo-project1.herokuapp.com/create', {
+    fetch(process.env.HEROKU_URL, {
 
       // Adding method type
       method: "POST",
@@ -99,7 +99,7 @@ function Form() {
               value={input.lName}
               required
             />
-              <input
+            <input
               style={{ width: "45%", marginLeft: "15px" }}
               className="form-group"
               autoComplete="off"
@@ -157,16 +157,16 @@ function Form() {
           <br></br>
           <span>
             <input
-            className="form-group"
-            style={{ width: "45%" }}
-            type="text"
-            name="currentSchool"
-            placeholder="Current School"
-            onChange={handleChange}
-            value={input.currentSchool}
+              className="form-group"
+              style={{ width: "45%" }}
+              type="text"
+              name="currentSchool"
+              placeholder="Current School"
+              onChange={handleChange}
+              value={input.currentSchool}
             />
             <input
-            className="form-group"
+              className="form-group"
               style={{ width: "45%", marginLeft: "15px" }}
               onKeyPress={(e) => {
                 if (!/[0-9]/.test(e.key)) {
